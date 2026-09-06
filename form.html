@@ -1,0 +1,79 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit News Item - EduMax Admin</title>
+  
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384<!-ENjdO4Dr2bkBIFxQpeo9hjlu0W0eJzPRF6Fm5G1mLv9zzTtmI3UksdQRVvoxMfoo" crossorigin="anonymous" />
+  
+  <!-- Optional custom stylesheet -->
+  <link rel="stylesheet" href="custom.css" />
+</head>
+<body>
+  <!-- Navigation (Example placeholder) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">EduMax Admin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">News</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+    <h1>Edit News Item</h1> 
+    <form 
+      action="https://students.open.ac.uk/mct/tm252/reflect/reflect.php" 
+      method="POST" 
+      novalidate 
+      aria-describedby="formInstructions" 
+    > 
+      <p id="formInstructions" class="form-text mb-3"> 
+        Please update the news item details below and submit the form. 
+      </p> 
+ 
+      <!-- Hidden field for itemID --> 
+      
+ 
+      <!-- News Title --> 
+      <div class="mb-3"> 
+        News Title
+        
+      </div> 
+ 
+      <!-- News Date --> 
+      <div class="mb-3"> 
+       Date
+       
+      </div> 
+ 
+      <!-- News Description --> 
+      <div class="mb-3"> 
+        <label for="newsDescription" class="form-label">Description</label> 
+        <textarea 
+          class="form-control" 
+          id="newsDescription" 
+          name="description" 
+          rows="5" 
+          required 
+          aria-required="true" 
+        >We are excited to announce the launch of a new feature that improves learning event management on EduMax.</textarea> 
+      </div> 
+ 
+      <!-- Submit button --> 
+      <button type="submit" class="btn btn-primary">Submit</button> 
+    </form> 
+  
+ 
+  <!-- Bootstrap JS Bundle (required for navbar toggling on mobile) --> 
+D

@@ -1,0 +1,724 @@
+Return-path: <error@notifications.contact.sky>
+Original-recipient: rfc822;tobyavb75@icloud.com
+Received: from p00-icloudmta-smtpin-us-west-3a-20-percent-2 by p136-mailgateway-smtp-78b56978f7-f2cp9 (mailgateway 2544B77)
+	with SMTP id 5ddcb82d-0749-42d0-9416-98e45365e455 
+	for <tobyavb75@icloud.com>; Wed, 31 Dec 2025 12:41:06 GMT
+X-Apple-MoveToFolder: INBOX 
+X-Apple-Action: MOVE_TO_FOLDER/INBOX
+X-Apple-UUID: 5ddcb82d-0749-42d0-9416-98e45365e455
+Received: from r10.p26.neolane.net (r10.p26.neolane.net [66.117.17.10])
+	by p00-icloudmta-smtpin-us-west-3a-20-percent-2 (Postfix) with ESMTPS id B863DC000AC
+	for <tobyavb75@icloud.com>; Wed, 31 Dec 2025 12:41:03 +0000 (UTC)
+X-ICL-Info: GAtbRVYDBVFFSlVHSgQEUVUKE0oWX1gHVQoPB0UGAExESFFZSQcYU0VZAxNFVUQQGgsmGRdEXwQcGgcDEV9YEVsaCRkMUVUWWwoNDlhWUl8bFhIeHllVAwEQCRkLHlUNGw0HFAweRQkMWRQURURZAAwYEBVPBXYLFhUJAhweVQ0YWQ4SFF8LEERJSAdKBhgMEBYKFhZVGAwQDUYHDEILEERJSAdKBhgMEBYKFhZVGAwQDUYTHA1YDQEQAB4bUUILGhcVWRtfWBYUGhJZC1tPQhgQAkpEfntURElTREoDdVVESCJAPAMFJgYSHygRVEU9Bw1TNxZfQgsTEAUWDFlZDAZXBRgWRFcBAVcVHAEO
+X-ICL-Score: 2.33303302423
+Authentication-Results: bimi.icloud.com; bimi=none
+X-ARC-Info: policy=fail; arc=none; r1=-20; r2=0
+Authentication-Results: arc.icloud.com; arc=none
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=notifications.contact.sky
+X-DMARC-Policy: v=DMARC1; p=reject; rua=mailto:5763eef50c@rep.dmarcanalyzer.com; ruf=mailto:5763eef50c@for.dmarcanalyzer.com; pct=100; sp=reject; adkim=s; aspf=s; fo=0:1:d:s;
+X-DMARC-Info: pass=pass; dmarc-policy=reject; s=s1; d=s1; pdomain=contact.sky
+Authentication-Results: dkim-verifier.icloud.com; dkim=pass header.d=notifications.contact.sky header.i=@notifications.contact.sky header.b=L9jRr+LE
+Received-SPF: pass (spf.icloud.com: domain of error@notifications.contact.sky designates 66.117.17.10 as permitted sender) receiver=spf.icloud.com; client-ip=66.117.17.10; helo=r10.p26.neolane.net; envelope-from=error@notifications.contact.sky
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of error@notifications.contact.sky designates 66.117.17.10 as permitted sender) smtp.mailfrom=error@notifications.contact.sky
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=notifications.contact.sky; s=bskyb2048; t=1767184861;
+	bh=s827jobBKECTskSlVul0xc8YLfe3BK+84izUiWlhwpA=;
+	h=From:Subject:Date:To:MIME-Version:Message-ID:Content-Type;
+	b=L9jRr+LE9xIK3ixLQR7UNyd3LOPtTkk2NyxO+j+jwJT+4HO4TeS2N2dF/m8rlnx6u
+	 dQpC7sjnIKGAEFEbmzLa43wh7FgIU1wTVI9WWgOVoWOLO3+0EOkoveZGR+1gidDYhQ
+	 J4eKis6zAoEjpu/Xjr8KdICWcdhxomF0ZvMrphwuFtYT/k6DGbqKO/i2XK7i+iPpuE
+	 A4sKyvfoYs6SwCY1MmxvkwFJYACYyrQ1uZf1muN0y0eFULsYWYGwk+QawCRW0HuxHC
+	 XHplOFhOTzMvo8acUT2WB9Ppq4hR8Av9SPiEWNLQkn4ZN09Z/5/keGUabfHBam1bHC
+	 N28PWNQeyDaUg==
+X-MSFBL: V9THVVIhS3D3AN5Fkf9aGpwYmxphPwsGA4hrIRHxKk4=|eyJiIjoiYnNreWJfNjY
+	uMTE3LjE3LjEwX2RlZmF1bHRfNTk0YmZhZmUtOWQyZS00MGNiLThiYzEtYzM2NGI
+	xYjQ3YjU0IiwiciI6InRvYnlhdmI3NUBpY2xvdWQuY29tIiwiZyI6ImRlZmF1bHR
+	fNTk0YmZhZmUtOWQyZS00MGNiLThiYzEtYzM2NGIxYjQ3YjU0IiwicmNwdF9tZXR
+	hIjp7ICJtIjogIjI3Mzg4NDEwMyIsICJkIjogIjI5OTM1Njk4OSIsICJpbiI6ICJ
+	za3lfaWRzX3J0NSIsICJyIjogInRvYnlhdmI3NUBpY2xvdWQuY29tIiB9fQ==
+Received: from [10.1.1.86] ([10.1.1.86:56619] helo=r9.p26.neolane.net) by irl1-prod1-mta-i-0f68260768887617a (envelope-from <error@notifications.contact.sky>) (ecelerity 4.4.1.20033 r(msys-ecelerity:tags/4.4.1.0^0)) with ESMTP id 84/D8-37634-DD915596; Wed, 31 Dec 2025 12:41:01 +0000
+From: "Sky" <sky@notifications.contact.sky>
+Subject: Thank you for ordering with Sky Mobile
+Date: Wed, 31 Dec 2025 12:41:00 GMT
+To: <tobyavb75@icloud.com>
+Reply-To: "Sky" <sky@notifications.contact.sky>
+MIME-Version: 1.0
+X-mailer: nlserver, Build 6.7.0
+Message-ID: <NM6105323C711D7D33Dsky_ids_rt5@notifications.contact.sky>
+Content-Type: text/html;
+	charset="windows-1252"
+Content-Transfer-Encoding: quoted-printable
+X-MANTSH: 1TFkXGxsaGREKWUQXbRltQBt/Q0t+Qn8RCllNF2JLRxEKX1kXGRMcEQpfTRdkRUR
+ PEQpZSRcacRoQGncGHxlxHR4aGRAYGx0SdwYYGgYaEQpZXhdsbHkRCkNOFxx4E25tSHAfB1JPR
+ WEZHVJBWB95G0BHWFh4Q1Bkf2VkEQpYXBcZBBoEHx4FGxoaBB0aBBsTEgQbHxAbHhofGhEKXlk
+ XTUNYHx0RCk1cFx4fEhEKTFoXaWhlQUFNEQpMRhdNaxEKQ1oXHBwEGxsdBBsdBBsaEQpCXhcbE
+ QpZRRcZEQpFSRcbEQpFZhcbEQpCXBcbEQpCSxdiRm9uWnh8BV5QRBEKQkkXY2xHSBlcGWBPfUE
+ RCkJFF2kFcgFLGExQSWBBEQpCThdjbEdIGVwZYE99QREKQkwXZUNTeGsBb3lTWX4RCkJsF2BzS
+ UhgXV1QZllLEQpCQBdke2FgfHt+QnxyGREKQlgXZEJeeEllXm1vYQERClpYFxgRCnBoF2hrRFB
+ aQlpaT2x7EBkaEQpwaBdpTk0ZWVBFHwFGQxAbEhEKcGgXbB9HTRhEEh8BWRwQHBoRCnBoF2Fec
+ nNNRRN6G0t/EBoRCnBoF2d7XBlsXBJrcwEfEB4SEQpwaBdveHlLG0JfAUJNfxAcGhEKcGgXaXl
+ MTmBbf3xCehkQGRoRCnBoF2AaHHpoW3hvWkZaEBoRCnB/F2BlYRJGTEZcYWRfEBkbEQpwXxdtT
+ 2ZLZ1IfRX5aEhAZGREKcH0XbFB+Y20YemIeZ2UQGRkRCnB/F2h+WB0fbEFkY0ZwEBweEQpwXxd
+ hZwFyfBNpe11ySRAcGhEKcH0XegVbZl9EYGJlYRkQHBoRCnB/F2EFYX4bZGdMG3xrEBMEHREKc
+ F8XZ3lyfUF/S1MYRGkQGhEKcH0XYXNIYFIZGRNFHGEQGhEKcF8XbH9oQ0NpekJGb1oQGhEKcH0
+ Xa0BkawFpbAEdflgQGhEKcGwXZ2hOWmdwTG5ceUAQBxwEHREKbX4XGhEKWE0XSxE=
+X-Proofpoint-GUID: 6R9DGbZ5-xeoK37xkr5S1jmrrRizNUON
+X-Proofpoint-ORIG-GUID: 6R9DGbZ5-xeoK37xkr5S1jmrrRizNUON
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjMxMDExMCBTYWx0ZWRfX9Y7d0vn2IknB
+ vN9b8GZjyq+TphcCOplcYKGs0CrfPAnZnU1C47fq/lJp8ydjxwJ88qpeMwvlIIPaFsOP7/wxT9U
+ mVvz2hTi0I44pMPiGeGSBMiFn22zNiNPgVF9ggso5uB5C1jMYZa3GWgPa3BHpBuNNeiXWcPfmsb
+ TAU81MVA3kVql4ut6QDC8KBq6wwwTx9kRCy1zID+u60BexO9EM3g0w3INQm/GsaCz++uwEUPyXY
+ 4QjaDnbd9M4NznkYUJ8fBdI93tgeuJjpUJD8Z1tg6JSmKYhCvB9EtqP4VtNMveSfPsif3v4Io=
+X-JNJ: AAAAAAABgr8+2KuAoJOwx2jWXWPwt+WcuaL2W2SSxwDQpUP8K0IUjFEGkIahxY7HyqCBKh166KGdT7YVNhBK4caUmgUcMAx7ksc3KEBfhQOcCHDsLzw2J/IGTuRc/a8Bnnc9RRMp23uCo48HGAVsJkJ8+80pPA/2ybc/JfVEVS+7osFdX6aWxT9Z66xgZVdjuLUAlcKw5aTh5CoTsIMNJ38pJZv9855ypqWuiLQZwUGBTWBd1vBmveTaTVXjf2JUie3gizm4l8PFmXG/1s53wQK1urRjfzh1jzmoGrkgS1/0o1oeNtNK4W7xnTvyJs9j6cn687K4RKvt0Urkx235hBQQ+HeMFobzdUvlInMs5YY+EjmycwSKVQfB2ixiBeX6uQjV+qdtdCL6PfKwavgXao5R7ciQT93UsqYR1+Rw2YixEFKrUHwwQftbpXlhhHoy1IOrTAquJXOk2HapeM1suwQFD4iQgLPh9qWcOZPcXYgx3CHWGwt8T5yYSOfQ9NnETrtKe2Gqq7FJtpIJJ7HzB4Y40nogj2XXEFRSxuYN40lskn4crtl20+7HrSGzStJVZS8Xz3wv2BcYzMhLkjIwTdHlnEwF73vFDPp8uimgViKZagnPCgNeeOqxeWNb7+h1
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"><title></title><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=
+=3Dedge"><meta name=3D"Generator" content=3D"Scriptura 19.04.3 build 201910=
+310931"><link rel=3D"schema.DC" href=3D"http://purl.org/dc/elements/1.1/"><=
+meta name=3D"DC.source" content=3D"file:/C:/Users/svc-app-scripturaprd/scri=
+ptura-19.04/workspace/TCC/flows/v4/../../design/templates/MOB/1100/MOB1100E=
+.scd"></head><body style=3D"mso-line-height-rule: exactly;"><div><table sty=
+le=3D"width: 456.0pt"><tbody><tr><td colspan=3D"3" valign=3D"top" style=3D"=
+padding: 0pt; margin-top: 0pt; width: 456.0pt; background-color: ; height:0=
+.0pt;"></td></tr><tr><td valign=3D"top" style=3D"padding: 0pt; width: 0.0pt=
+; background-color: ;"></td><td valign=3D"top" style=3D"padding: 0pt; width=
+: 456pt; background-color: transparent;"><table cellpadding=3D"0" cellspaci=
+ng=3D"0" style=3D"border-spacing: 0px; border-collapse: collapse; color: in=
+herit; "><tr><td style=3D"padding-left: 0pt; padding-right: 2.5pt; padding-=
+top: 0pt; padding-bottom:0pt;"><table cellpadding=3D"0" cellspacing=3D"0" n=
+ame=3D"Table (1)" style=3D"width: 453.5pt; padding: 0pt; border-collapse: c=
+ollapse; position: relative;color: inherit;"><tbody><tr class=3D"C744628511=
+9053169664" style=3D"padding: 0pt;"><td valign=3D"top" style=3D"padding: 0;=
+ padding-right: 0.5pt; padding-left: 0pt; padding-top: 0pt; padding-bottom:=
+ 0pt; width: 453.5pt;"><table style=3D"border-spacing: 0px; border-collapse=
+: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"=
+0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;paddi=
+ng-top:0pt;padding-bottom:0pt;"><div name=3D"adobemobileheader.sro (1)" sty=
+le=3D"margin-right: 0pt; margin-left: 0pt; padding: 0pt;"><table style=3D"b=
+order-spacing: 0px; border-collapse: collapse; color: inherit; width: 100%;=
+" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"paddi=
+ng-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div sty=
+le=3D"width: 453.0pt; padding: 0pt; line-height: 0pt;"><table cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-spacing: 0px; border-collapse: col=
+lapse; color: inherit; position: absolute; width: 100%; "><tr><td valign=3D=
+"top" style=3D"padding-left:0pt; padding-top:0pt; padding-right:0pt;padding=
+-bottom:0pt;"><div name=3D"Image (1)" style=3D"position: absolute; text-ind=
+ent: 0pt; width: 453.25pt; padding: 0pt;"><table style=3D"border-spacing: 0=
+px; border-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D=
+"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padd=
+ing-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div style=3D"padding: 0=
+pt;"><table style=3D"border-spacing: 0px; border-collapse: collapse; color:=
+ inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=
+=3D"top" style=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;paddin=
+g-bottom:0pt;"><div style=3D"margin-right: 0pt; line-height: 0pt; width: 45=
+3.25pt; padding: 0pt;mso-line-height-rule: at-least; line-height: 145.4pt;"=
+><img style=3D"display: block;width: 100%; height: 145pt; " src=3D"https://=
+t.newsletter.contact.sky/res/sky_ids_mid_t/Mobile_Transcomms_Email_Header_6=
+50x202_TCPM_9184.jpg"></div></td></tr></table></div></td></tr></table></div=
+></td></tr></table><table style=3D"border-spacing: 0px; border-collapse: co=
+llapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><=
+tr><td valign=3D"top" style=3D"padding-top: 146.0pt; padding-left:0pt;paddi=
+ng-right:0pt;padding-bottom:0pt;"><div style=3D"padding: 0pt;"> </div></td>=
+</tr></table></div></td></tr></table></div></td></tr></table></td></tr><tr =
+class=3D"C4038317790614894592" style=3D"padding: 0pt; height: 5.6pt;"><td v=
+align=3D"top" style=3D"padding: 0; padding: 0pt; width: 453.5pt;"><table st=
+yle=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; widt=
+h: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=
+=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"=
+><div name=3D"Text (136)" style=3D"padding-top: 1.95pt; padding-right: 1.95=
+pt; padding-left: 1.95pt; padding-bottom: 0pt;"> </div></td></tr></table></=
+td></tr><tr class=3D"C6118557108840356864" style=3D"padding: 0pt;"><td vali=
+gn=3D"top" style=3D"padding: 0; padding: 0pt; width: 453.5pt;"><table style=
+=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; width: =
+100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"=
+padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><di=
+v name=3D"Text (2)" style=3D"padding-top: 1.95pt; padding-right: 1.95pt; pa=
+dding-left: 1.95pt; padding-bottom: 0pt;"><table style=3D"border-spacing: 0=
+px; border-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D=
+"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padd=
+ing-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div style=3D"padding: 0=
+pt;"><table style=3D"border-spacing: 0px; border-collapse: collapse; color:=
+ inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=
+=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;p=
+adding-right:0pt;"><div class=3D"EthanEmailmainheading" style=3D"line-heigh=
+t: 0pt; text-align: left; text-indent: 0pt; padding: 0pt;"><span style=3D"c=
+olor: #808080; line-height: normal; font: normal bold 20.0pt Arial; -webkit=
+-text-size-adjust: none; padding: 0pt;">Please sign your credit agreement</=
+span><span style=3D"color: #808080; line-height: normal; font: normal bold =
+20.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;"> </span><span =
+style=3D"color: #808080; line-height: normal; font: normal bold 20.0pt Aria=
+l; -webkit-text-size-adjust: none; padding: 0pt;"> </span></div></td></tr><=
+/table><table style=3D"border-spacing: 0px; border-collapse: collapse; colo=
+r: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valig=
+n=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;=
+padding-right:0pt;"><div class=3D"EthanEmailbodytext" style=3D"color: #0000=
+00; line-height: normal; text-align: left; text-indent: 0pt; font: normal n=
+ormal 9.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;"><div>&nbs=
+p;</div></div></td></tr></table></div></td></tr></table></div></td></tr></t=
+able></td></tr><tr class=3D"C8895913892609849344" style=3D"padding: 0pt;"><=
+td valign=3D"top" style=3D"padding: 0; padding-right: 106.5pt; padding-left=
+: 0pt; padding-top: 0pt; padding-bottom: 0pt; width: 453.5pt;"><table style=
+=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; width: =
+100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"=
+padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><di=
+v name=3D"salutationemail.sro (1)" style=3D"margin-right: 0pt; margin-left:=
+ 0pt; padding: 0pt;"><table style=3D"border-spacing: 0px; border-collapse: =
+collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;padding=
+-top:0pt;padding-bottom:0pt;"><div style=3D"width: 347.0pt; padding: 0pt;">=
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing: 0px; bo=
+rder-collapse: collapse; color: inherit; "><tr><td style=3D"padding-left: 0=
+pt; padding-right: -2.0pt; padding-top: 0pt; padding-bottom:0pt;"><table ce=
+llpadding=3D"0" cellspacing=3D"0" name=3D"Table (1)" style=3D"width: 349.0p=
+t; padding: 0pt; border-collapse: collapse;color: inherit;"><tbody><tr clas=
+s=3D"C3753036565477382144" style=3D"padding: 0pt;"><td valign=3D"top" style=
+=3D"padding: 0; padding: 0pt; width: 349.0pt;"><table style=3D"border-spaci=
+ng: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt=
+;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div name=3D"Text (=
+5)" style=3D"padding-top: 1.95pt; padding-right: 1.95pt; padding-left: 1.95=
+pt; padding-bottom: 0pt;"><table style=3D"border-spacing: 0px; border-colla=
+pse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;p=
+adding-top:0pt;padding-bottom:0pt;"><div style=3D"padding: 0pt;"><table sty=
+le=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; width=
+: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=
+=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0=
+pt;"><div style=3D"line-height: 0pt; text-align: left; text-indent: 0pt; pa=
+dding: 0pt;"><span style=3D"color: #000000; line-height: normal; font: norm=
+al normal 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;">Hell=
+o </span><span style=3D"color: #000000; line-height: normal; font: normal n=
+ormal 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;">Tobore</=
+span><span style=3D"color: #000000; line-height: normal; font: normal norma=
+l 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;">,</span></di=
+v></td></tr></table></div></td></tr></table></div></td></tr></table></td></=
+tr></tbody></table></td></tr></table><table style=3D"border-spacing: 0px; b=
+order-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-top: 3.0pt; paddin=
+g-left:0pt;padding-right:0pt;padding-bottom:0pt;"><div style=3D"padding: 0p=
+t;"> </div></td></tr></table></div></td></tr></table></div></td></tr></tabl=
+e></td></tr><tr class=3D"C7691916935126973440" style=3D"padding: 0pt;"><td =
+valign=3D"top" style=3D"padding: 0; padding: 0pt; width: 453.5pt;"><table s=
+tyle=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; wid=
+th: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=
+=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"=
+><div name=3D"Text (8)" style=3D"padding-top: 1.95pt; padding-right: 1.95pt=
+; padding-left: 1.95pt; padding-bottom: 0pt;"><table style=3D"border-spacin=
+g: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellpaddin=
+g=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;=
+padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div style=3D"paddin=
+g: 0pt;"><table style=3D"border-spacing: 0px; border-collapse: collapse; co=
+lor: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td val=
+ign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0p=
+t;padding-right:0pt;"><div style=3D"color: #000000; line-height: normal; te=
+xt-align: left; text-indent: 0pt; font: normal normal 12.0pt Times New Roma=
+n; -webkit-text-size-adjust: none; padding: 0pt;"><div>&nbsp;</div></div></=
+td></tr></table><table style=3D"border-spacing: 0px; border-collapse: colla=
+pse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td valign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-=
+left:0pt;padding-right:0pt;"><div class=3D"EthanEmailbodytext" style=3D"lin=
+e-height: 0pt; text-align: left; text-indent: 0pt; padding: 0pt;"><span sty=
+le=3D"color: #000000; line-height: normal; font: normal normal 12.0pt Arial=
+; -webkit-text-size-adjust: none; padding: 0pt;">You'll need</span><span st=
+yle=3D"color: #000000; line-height: normal; font: normal normal 12.0pt Aria=
+l; -webkit-text-size-adjust: none; padding: 0pt;"> to confirm if you can af=
+ford your loan(s) and sign your credit agreement(s) so that we can get your=
+ Sky Mobile order moving, then we'll be in touch to confirm what you've cho=
+sen</span><span style=3D"color: #000000; line-height: normal; font: normal =
+normal 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;">.</span=
+></div></td></tr></table><table style=3D"border-spacing: 0px; border-collap=
+se: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0p=
+t; padding-left:0pt;padding-right:0pt;"><div class=3D"EthanEmailbodytext" s=
+tyle=3D"color: #000000; line-height: normal; text-align: left; text-indent:=
+ 0pt; font: normal normal 12.0pt Arial; -webkit-text-size-adjust: none; pad=
+ding: 0pt;"><div>&nbsp;</div></div></td></tr></table><table style=3D"border=
+-spacing: 0px; border-collapse: collapse; color: inherit; width: 100%;" cel=
+lpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bo=
+ttom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div clas=
+s=3D"EthanEmailbodytext" style=3D"line-height: 0pt; text-align: left; text-=
+indent: 0pt; padding: 0pt;"><span style=3D"color: #000000; line-height: nor=
+mal; font: normal bold 12.0pt Arial; -webkit-text-size-adjust: none; paddin=
+g: 0pt;">Action required:</span></div></td></tr></table><table style=3D"bor=
+der-spacing: 0px; border-collapse: collapse; color: inherit; width: 100%;" =
+cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding=
+-bottom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div c=
+lass=3D"EthanEmailbodytext" style=3D"color: #000000; line-height: normal; t=
+ext-align: left; text-indent: 0pt; font: normal normal 12.0pt Arial; -webki=
+t-text-size-adjust: none; padding: 0pt;"><div>&nbsp;</div></div></td></tr><=
+/table><table style=3D"border-spacing: 0px; border-collapse: collapse; colo=
+r: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valig=
+n=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;=
+padding-right:0pt;"><div class=3D"EthanEmailbodytext" style=3D"line-height:=
+ 0pt; text-align: left; text-indent: 0pt; padding: 0pt;"><span style=3D"col=
+or: #000000; line-height: normal; font: normal normal 12.0pt Arial; -webkit=
+-text-size-adjust: none; padding: 0pt;">You'll need to sign your </span><sp=
+an style=3D"color: #662d8e; line-height: normal; font: normal bold 12.0pt A=
+rial; -webkit-text-size-adjust: none; text-decoration: none; padding: 0pt;"=
+><a href=3D"https://www.sky.com/manage/mobile/devices" style=3D"color: #662=
+d8e; line-height: normal; font: normal bold 12.0pt Arial; -webkit-text-size=
+-adjust: none; text-decoration: none; padding: 0pt;">credit agreement</a></=
+span><span style=3D"color: #000000; line-height: normal; font: normal norma=
+l 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;"> before 14/0=
+1/2026. If you don't sign your credit agreement(s) by this date, your order=
+ will be cancelled</span><span style=3D"color: #000000; line-height: normal=
+; font: normal normal 12.0pt Arial; -webkit-text-size-adjust: none; padding=
+: 0pt;">.</span></div></td></tr></table></div></td></tr></table></div></td>=
+</tr></table></td></tr><tr class=3D"C6255788345780144128" style=3D"padding:=
+ 0pt;"><td valign=3D"top" style=3D"padding: 0; padding: 0pt; width: 453.5pt=
+;"><table cellpadding=3D"0" cellspacing=3D"0" name=3D"Table (3)" style=3D"p=
+adding: 0pt; border-collapse: collapse;color: inherit; width: 100%;"><tbody=
+><tr class=3D"C8239048961980819456" style=3D"padding: 0pt;"><td valign=3D"t=
+op" colspan=3D"2" style=3D"padding: 0; padding: 0pt; width: 453.5pt;"><tabl=
+e style=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; =
+width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" st=
+yle=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0p=
+t;"><div name=3D"Text (14)" style=3D"padding-top: 1.95pt; padding-right: 1.=
+95pt; padding-left: 1.95pt; padding-bottom: 0pt;"><table style=3D"border-sp=
+acing: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellpa=
+dding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:=
+0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div style=3D"pa=
+dding: 0pt;"><table style=3D"border-spacing: 0px; border-collapse: collapse=
+; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td=
+ valign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-lef=
+t:0pt;padding-right:0pt;"><div class=3D"EthanEmailbodytext" style=3D"color:=
+ #000000; line-height: normal; text-align: left; text-indent: 0pt; font: no=
+rmal normal 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;"><d=
+iv>&nbsp;</div></div></td></tr></table><table style=3D"border-spacing: 0px;=
+ border-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0"=
+ cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; pad=
+ding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=3D"EthanEmai=
+lbodytext" style=3D"line-height: 0pt; text-align: left; text-indent: 0pt; p=
+adding: 0pt;"><span style=3D"color: #000000; line-height: normal; font: nor=
+mal bold 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;">Pleas=
+e note</span></div></td></tr></table><table style=3D"border-spacing: 0px; b=
+order-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; paddi=
+ng-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=3D"EthanEmailb=
+odytext" style=3D"color: #000000; line-height: normal; text-align: left; te=
+xt-indent: 0pt; font: normal normal 12.0pt Arial; -webkit-text-size-adjust:=
+ none; padding: 0pt;"><div>&nbsp;</div></div></td></tr></table></div></td><=
+/tr></table></div></td></tr></table></td></tr><tr class=3D"C587852269082467=
+9424" style=3D"padding: 0pt;"><td valign=3D"top" style=3D"padding: 0; paddi=
+ng: 0pt; width: 28.3pt;"><table style=3D"border-spacing: 0px; border-collap=
+se: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;p=
+adding-top:0pt;padding-bottom:0pt;"><div name=3D"Text (22)" style=3D"paddin=
+g-top: 1.95pt; padding-right: 1.95pt; padding-left: 1.95pt; padding-bottom:=
+ 0pt;"><table style=3D"border-spacing: 0px; border-collapse: collapse; colo=
+r: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valig=
+n=3D"top" style=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;paddi=
+ng-bottom:0pt;"><div style=3D"padding: 0pt;"><table style=3D"border-spacing=
+: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0p=
+t; padding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=3D"Eth=
+anEmailbodytext" style=3D"line-height: 0pt; text-align: center; text-indent=
+: 0pt; padding: 0pt;"><span style=3D"color: #000000; line-height: normal; f=
+ont: normal normal 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0=
+pt;">&#8226;</span></div></td></tr></table></div></td></tr></table></div></=
+td></tr></table></td><td valign=3D"top" style=3D"padding: 0; padding: 0pt; =
+width: 425.2pt;"><table style=3D"border-spacing: 0px; border-collapse: coll=
+apse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr=
+><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;padding-top=
+:0pt;padding-bottom:0pt;"><div name=3D"Text (23)" style=3D"padding-top: 1.9=
+5pt; padding-right: 1.95pt; padding-left: 1.95pt; padding-bottom: 0pt;"><ta=
+ble style=3D"border-spacing: 0px; border-collapse: collapse; color: inherit=
+; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" =
+style=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:=
+0pt;"><div style=3D"padding: 0pt;"><table style=3D"border-spacing: 0px; bor=
+der-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cel=
+lspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; padding=
+-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=3D"EthanEmailbod=
+ytext" style=3D"line-height: 0pt; text-align: left; text-indent: 0pt; paddi=
+ng: 0pt;"><span style=3D"color: #000000; line-height: normal; font: normal =
+normal 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;">It's im=
+portant to stay up to date with your loan payments, as failure to do so cou=
+ld negatively impact your credit score. A poor credit score may make it mor=
+e difficult to secure future loans or services.</span></div></td></tr></tab=
+le><table style=3D"border-spacing: 0px; border-collapse: collapse; color: i=
+nherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D=
+"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;padd=
+ing-right:0pt;"><div class=3D"EthanEmailbodytext" style=3D"color: #000000; =
+line-height: normal; text-align: left; text-indent: 0pt; font: normal norma=
+l 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;"><div>&nbsp;<=
+/div></div></td></tr></table></div></td></tr></table></div></td></tr></tabl=
+e></td></tr><tr class=3D"C8633383726366390272" style=3D"padding: 0pt;"><td =
+valign=3D"top" style=3D"padding: 0; padding: 0pt; width: 28.3pt;"><table st=
+yle=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; widt=
+h: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=
+=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"=
+><div name=3D"Text (24)" style=3D"padding-top: 1.95pt; padding-right: 1.95p=
+t; padding-left: 1.95pt; padding-bottom: 0pt;"><table style=3D"border-spaci=
+ng: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt=
+;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div style=3D"paddi=
+ng: 0pt;"><table style=3D"border-spacing: 0px; border-collapse: collapse; c=
+olor: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td va=
+lign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0=
+pt;padding-right:0pt;"><div class=3D"EthanEmailbodytext" style=3D"line-heig=
+ht: 0pt; text-align: center; text-indent: 0pt; padding: 0pt;"><span style=
+=3D"color: #000000; line-height: normal; font: normal normal 12.0pt Arial; =
+-webkit-text-size-adjust: none; padding: 0pt;">&#8226;</span></div></td></t=
+r></table></div></td></tr></table></div></td></tr></table></td><td valign=
+=3D"top" style=3D"padding: 0; padding: 0pt; width: 425.2pt;"><table style=
+=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; width: =
+100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"=
+padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><di=
+v name=3D"Text (25)" style=3D"padding-top: 1.95pt; padding-right: 1.95pt; p=
+adding-left: 1.95pt; padding-bottom: 0pt;"><table style=3D"border-spacing: =
+0px; border-collapse: collapse; color: inherit; width: 100%;" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;p=
+adding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div style=3D"padding=
+: 0pt;"><table style=3D"border-spacing: 0px; border-collapse: collapse; col=
+or: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td vali=
+gn=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt=
+;padding-right:0pt;"><div class=3D"EthanEmailbodytext" style=3D"line-height=
+: 0pt; text-align: left; text-indent: 0pt; padding: 0pt;"><span style=3D"co=
+lor: #000000; line-height: normal; font: normal normal 12.0pt Arial; -webki=
+t-text-size-adjust: none; padding: 0pt;">If you took multiple credit agreem=
+ents with this order, you need to sign all of them before we can dispatch y=
+our order.</span></div></td></tr></table></div></td></tr></table></div></td=
+></tr></table></td></tr></tbody></table></td></tr><tr class=3D"C81323180251=
+34661632" style=3D"padding: 0pt;"><td valign=3D"top" style=3D"padding: 0; p=
+adding: 0pt; width: 453.5pt;"><table style=3D"border-spacing: 0px; border-c=
+ollapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0p=
+t;padding-top:0pt;padding-bottom:0pt;"><div name=3D"Text (15)" style=3D"pad=
+ding-top: 1.95pt; padding-right: 1.95pt; padding-left: 1.95pt; padding-bott=
+om: 0pt;"><table style=3D"border-spacing: 0px; border-collapse: collapse; c=
+olor: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td va=
+lign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;pa=
+dding-bottom:0pt;"><div style=3D"padding: 0pt;"><table style=3D"border-spac=
+ing: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellpadd=
+ing=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom:=
+ 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=3D"=
+EthanEmailbodytext" style=3D"color: #000000; line-height: normal; text-alig=
+n: left; text-indent: 0pt; font: normal normal 12.0pt Arial; -webkit-text-s=
+ize-adjust: none; padding: 0pt;"> </div></td></tr></table><table style=3D"b=
+order-spacing: 0px; border-collapse: collapse; color: inherit; width: 100%;=
+" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"paddi=
+ng-bottom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div=
+ class=3D"EthanEmailbodytext" style=3D"line-height: 0pt; text-align: left; =
+text-indent: 0pt; padding: 0pt;"> </div></td></tr></table></div></td></tr><=
+/table></div></td></tr></table></td></tr><tr class=3D"C485447284674577408" =
+style=3D"padding: 0pt;"><td valign=3D"top" style=3D"padding: 0; padding: 0p=
+t; width: 453.5pt;"><table style=3D"border-spacing: 0px; border-collapse: c=
+ollapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0">=
+<tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;padding-=
+top:0pt;padding-bottom:0pt;"><div name=3D"Text (11)" style=3D"padding-top: =
+1.95pt; padding-right: 1.95pt; padding-left: 1.95pt; padding-bottom: 0pt;">=
+<table style=3D"border-spacing: 0px; border-collapse: collapse; color: inhe=
+rit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"to=
+p" style=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bott=
+om:0pt;"><div style=3D"padding: 0pt;"><table style=3D"border-spacing: 0px; =
+border-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" =
+cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; padd=
+ing-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=3D"EthanEmail=
+bodytext" style=3D"color: #000000; line-height: normal; text-align: left; t=
+ext-indent: 0pt; font: normal normal 12.0pt Arial; -webkit-text-size-adjust=
+: none; padding: 0pt;"><div>&nbsp;</div></div></td></tr></table><table styl=
+e=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; width:=
+ 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D=
+"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0pt;=
+"><div class=3D"EthanEmailbodytext" style=3D"line-height: 0pt; text-align: =
+left; text-indent: 0pt; padding: 0pt;"><span style=3D"color: #000000; line-=
+height: normal; font: normal bold 12.0pt Arial; -webkit-text-size-adjust: n=
+one; padding: 0pt;">We're here to help</span></div></td></tr></table><table=
+ style=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; w=
+idth: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" sty=
+le=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right=
+:0pt;"><div class=3D"EthanEmailbodytext" style=3D"color: #000000; line-heig=
+ht: normal; text-align: left; text-indent: 0pt; font: normal normal 12.0pt =
+Arial; -webkit-text-size-adjust: none; padding: 0pt;"><div>&nbsp;</div></di=
+v></td></tr></table><table style=3D"border-spacing: 0px; border-collapse: c=
+ollapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0">=
+<tr><td valign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padd=
+ing-left:0pt;padding-right:0pt;"><div class=3D"EthanEmailbodytext" style=3D=
+"line-height: 0pt; text-align: left; text-indent: 0pt; padding: 0pt;"><span=
+ style=3D"color: #000000; line-height: normal; font: normal normal 12.0pt A=
+rial; -webkit-text-size-adjust: none; padding: 0pt;">For 24/7 support with =
+your Mobile, including how to track your order and get set up, head </span>=
+<span style=3D"color: #662d8e; line-height: normal; font: normal bold 12.0p=
+t Arial; -webkit-text-size-adjust: none; text-decoration: none; padding: 0p=
+t;"><a href=3D"https://www.sky.com/help/page/mobile-digital-hub" style=3D"c=
+olor: #662d8e; line-height: normal; font: normal bold 12.0pt Arial; -webkit=
+-text-size-adjust: none; text-decoration: none; padding: 0pt;">here</a></sp=
+an><span style=3D"color: #000000; line-height: normal; font: normal normal =
+12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;">.</span></div>=
+</td></tr></table><table style=3D"border-spacing: 0px; border-collapse: col=
+lapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><t=
+r><td valign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; paddin=
+g-left:0pt;padding-right:0pt;"><div class=3D"EthanEmailbodytext" style=3D"c=
+olor: #000000; line-height: normal; text-align: left; text-indent: 0pt; fon=
+t: normal normal 12.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt=
+;"><div>&nbsp;</div></div></td></tr></table></div></td></tr></table></div><=
+/td></tr></table></td></tr><tr class=3D"C4116483666408961024" style=3D"padd=
+ing: 0pt;"><td valign=3D"top" style=3D"padding: 0; padding-right: 181.5pt; =
+padding-left: 0pt; padding-top: 0pt; padding-bottom: 0pt; width: 453.5pt;">=
+<table style=3D"border-spacing: 0px; border-collapse: collapse; color: inhe=
+rit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"to=
+p" style=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bott=
+om:0pt;"><div name=3D"MobileemailClosing.sro (1)" style=3D"margin-right: 0p=
+t; margin-left: 0pt; padding: 0pt;"><table style=3D"border-spacing: 0px; bo=
+rder-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" ce=
+llspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-ri=
+ght:0pt;padding-top:0pt;padding-bottom:0pt;"><div style=3D"width: 272.0pt; =
+padding: 0pt;"><table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-s=
+pacing: 0px; border-collapse: collapse; color: inherit; "><tr><td style=3D"=
+padding-left: 0pt; padding-right: 2.75pt; padding-top: -1.0pt; padding-bott=
+om:0pt;"><table cellpadding=3D"0" cellspacing=3D"0" name=3D"Table (1)" styl=
+e=3D"width: 269.25pt; padding: 0pt; border-collapse: collapse;color: inheri=
+t;"><tbody><tr class=3D"C4534417614055616512" style=3D"padding: 0pt;"><td v=
+align=3D"top" style=3D"padding: 0; padding: 0pt; width: 269.25pt;"><table s=
+tyle=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; wid=
+th: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=
+=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"=
+><div name=3D"Text (1)" style=3D"padding-top: 1.95pt; padding-right: 1.95pt=
+; padding-left: 1.95pt; padding-bottom: 0pt;"><table style=3D"border-spacin=
+g: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellpaddin=
+g=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;=
+padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div style=3D"paddin=
+g: 0pt;"><table style=3D"border-spacing: 0px; border-collapse: collapse; co=
+lor: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td val=
+ign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0p=
+t;padding-right:0pt;"><div style=3D"line-height: 0pt; text-align: left; tex=
+t-indent: 0pt; padding: 0pt;"><span style=3D"color: #000000; line-height: n=
+ormal; font: normal normal 12.0pt Arial; -webkit-text-size-adjust: none; pa=
+dding: 0pt;">Thanks,</span></div></td></tr></table></div></td></tr></table>=
+</div></td></tr></table></td></tr><tr class=3D"C7654864333454959616" style=
+=3D"padding: 0pt;"><td valign=3D"top" style=3D"padding: 0; padding: 0pt; wi=
+dth: 269.25pt;"><table style=3D"border-spacing: 0px; border-collapse: colla=
+pse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;padding-top:=
+0pt;padding-bottom:0pt;"><div name=3D"Text (5)" style=3D"padding-top: 1.95p=
+t; padding-right: 1.95pt; padding-left: 1.95pt; padding-bottom: 0pt;"><tabl=
+e style=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; =
+width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" st=
+yle=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0p=
+t;"><div style=3D"padding: 0pt;"><table style=3D"border-spacing: 0px; borde=
+r-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cells=
+pacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; padding-t=
+op: 0pt; padding-left:0pt;padding-right:0pt;"><div style=3D"color: #000000;=
+ line-height: normal; text-align: left; text-indent: 0pt; font: normal bold=
+ 12.0pt Verdana; -webkit-text-size-adjust: none; padding: 0pt;"><div>&nbsp;=
+</div></div></td></tr></table><table style=3D"border-spacing: 0px; border-c=
+ollapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; padding-top:=
+ 0pt; padding-left:0pt;padding-right:0pt;"><div style=3D"line-height: 0pt; =
+text-align: left; text-indent: 0pt; padding: 0pt;"><span style=3D"color: #0=
+00000; line-height: normal; font: normal normal 12.0pt Arial; -webkit-text-=
+size-adjust: none; padding: 0pt;">Your Sky Team</span></div></td></tr></tab=
+le></div></td></tr></table></div></td></tr></table></td></tr></tbody></tabl=
+e></td></tr></table></div></td></tr></table></div></td></tr></table></td></=
+tr><tr class=3D"C5104052517644892160" style=3D"padding: 0pt; height: 31.9pt=
+;"><td valign=3D"top" style=3D"padding: 0; padding: 0pt; width: 453.5pt;"><=
+table style=3D"border-spacing: 0px; border-collapse: collapse; color: inher=
+it; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top=
+" style=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-botto=
+m:0pt;"><div name=3D"Text (3)" style=3D"padding-top: 1.95pt; padding-right:=
+ 1.95pt; padding-left: 1.95pt; padding-bottom: 0pt;"> </div></td></tr></tab=
+le></td></tr><tr class=3D"C6110208235022749696" style=3D"padding: 0pt;"><td=
+ valign=3D"top" style=3D"padding: 0; padding-right: 0.55pt; padding-left: 0=
+pt; padding-top: 0pt; padding-bottom: 0pt; width: 453.5pt;"><table style=3D=
+"border-spacing: 0px; border-collapse: collapse; color: inherit; width: 100=
+%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"pad=
+ding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div n=
+ame=3D"adobemobilefooter.sro (1)" style=3D"margin-right: 0pt; margin-left: =
+0pt; padding: 0pt;"><table style=3D"border-spacing: 0px; border-collapse: c=
+ollapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0">=
+<tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;padding-=
+top:0pt;padding-bottom:0pt;"><div style=3D"width: 452.95pt; padding: 0pt;">=
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-spacing: 0px; bo=
+rder-collapse: collapse; color: inherit; "><tr><td style=3D"padding-left: 0=
+pt; padding-right: 0pt; padding-top: 0pt; padding-bottom:0pt;"><table cellp=
+adding=3D"0" cellspacing=3D"0" name=3D"Table (1)" style=3D"width: 452.95pt;=
+ padding: 0pt; border-collapse: collapse;color: inherit;"><tbody><tr class=
+=3D"C8954671692613553152" style=3D"padding: 0pt;"><td valign=3D"top" colspa=
+n=3D"2" style=3D"padding: 0; padding: 0pt; width: 452.95pt;"><table style=
+=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; width: =
+100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"=
+padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><di=
+v name=3D"Image (1)" style=3D"margin-right: 0pt; margin-left: 0pt; text-ind=
+ent: 0pt; padding: 0pt;"><table style=3D"border-spacing: 0px; border-collap=
+se: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;p=
+adding-top:0pt;padding-bottom:0pt;"><div style=3D"padding: 0pt;"><table sty=
+le=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; width=
+: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=
+=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"=
+><div style=3D"margin-right: 0pt; line-height: 0pt; margin-left: 0pt; width=
+: 452.95pt; padding: 0pt;mso-line-height-rule: at-least; line-height: 150.2=
+pt;"><img style=3D"display: block;width: 100%; height: 150pt; " src=3D"http=
+s://t.newsletter.contact.sky/res/sky_ids_mid_t/Mobile_Transcomms_Email_Foot=
+er_650x226_TCPM_9184.jpg"></div></td></tr></table></div></td></tr></table><=
+/div></td></tr></table></td></tr><tr class=3D"C2805799255722279936" style=
+=3D"padding: 0pt; height: 13.0pt;"><td valign=3D"top" style=3D"padding: 0; =
+padding: 0pt; width: 95.2pt;"><table style=3D"border-spacing: 0px; border-c=
+ollapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0p=
+t;padding-top:0pt;padding-bottom:0pt;"><div name=3D"Text (4)" style=3D"padd=
+ing-top: 1.95pt; padding-right: 1.95pt; padding-left: 1.95pt; padding-botto=
+m: 0pt;"> </div></td></tr></table></td><td valign=3D"top" style=3D"padding:=
+ 0; padding: 0pt; width: 357.75pt;"><table style=3D"border-spacing: 0px; bo=
+rder-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" ce=
+llspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-ri=
+ght:0pt;padding-top:0pt;padding-bottom:0pt;"><div name=3D"Text (5)" style=
+=3D"padding-top: 1.95pt; padding-right: 1.95pt; padding-left: 1.95pt; paddi=
+ng-bottom: 0pt;"> </div></td></tr></table></td></tr><tr class=3D"C291899868=
+2518042624" style=3D"padding: 0pt;"><td valign=3D"top" style=3D"padding: 0;=
+ padding: 0pt; width: 95.2pt;"><table style=3D"border-spacing: 0px; border-=
+collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspa=
+cing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0=
+pt;padding-top:0pt;padding-bottom:0pt;"><div name=3D"Image (2)" style=3D"ma=
+rgin-right: 0pt; margin-left: 0pt; text-indent: 0pt; padding: 0pt;"><table =
+style=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; wi=
+dth: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" styl=
+e=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;=
+"><div style=3D"padding: 0pt;"><table style=3D"border-spacing: 0px; border-=
+collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspa=
+cing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0=
+pt;padding-top:0pt;padding-bottom:0pt;"><div style=3D"margin-right: 0pt; li=
+ne-height: 0pt; margin-left: 0pt; width: 95.2pt; padding: 0pt;mso-line-heig=
+ht-rule: at-least; line-height: 56.65pt;"><img style=3D"display: block;widt=
+h: 100%; height: 56pt; " src=3D"https://res.newsletter.contact.sky/res/sky_=
+ids_mid_t/412ca56e86eee281217c14dc406585ed108596c0766ea6526c9569aa3b7a3fc3.=
+jpg"></div></td></tr></table></div></td></tr></table></div></td></tr></tabl=
+e></td><td valign=3D"top" style=3D"padding: 0; padding: 0pt; width: 357.75p=
+t;"><table style=3D"border-spacing: 0px; border-collapse: collapse; color: =
+inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=
+=3D"top" style=3D"padding-left:0pt;padding-right:0pt;padding-top:0pt;paddin=
+g-bottom:0pt;"><div name=3D"Text (7)" style=3D"padding-top: 1.95pt; padding=
+-right: 1.95pt; padding-left: 1.95pt; padding-bottom: 0pt;"><table style=3D=
+"border-spacing: 0px; border-collapse: collapse; color: inherit; width: 100=
+%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"pad=
+ding-left:0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div s=
+tyle=3D"padding: 0pt;"><table style=3D"border-spacing: 0px; border-collapse=
+: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"=
+0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; p=
+adding-left:0pt;padding-right:0pt;"><div class=3D"OBDEmailbodytext" style=
+=3D"line-height: 0pt; text-align: left; text-indent: 0pt; padding: 0pt;"><s=
+pan style=3D"color: #000000; line-height: normal; font: normal normal 8.0pt=
+ Arial; -webkit-text-size-adjust: none; padding: 0pt;">If you want to know =
+more about keeping your children safe online, Internet Matters is here to b=
+ring you information, advice and support.</span></div></td></tr></table></d=
+iv></td></tr></table></div></td></tr></table></td></tr><tr class=3D"C861564=
+1161360200704" style=3D"padding: 0pt;"><td valign=3D"top" colspan=3D"2" sty=
+le=3D"padding: 0; padding: 0pt; width: 452.95pt;"><table style=3D"border-sp=
+acing: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellpa=
+dding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:=
+0pt;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div name=3D"Tex=
+t (1)" style=3D"padding-top: 1.95pt; padding-right: 1.95pt; padding-left: 1=
+.95pt; padding-bottom: 0pt;"><table style=3D"border-spacing: 0px; border-co=
+llapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspaci=
+ng=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt=
+;padding-top:0pt;padding-bottom:0pt;"><div style=3D"padding: 0pt;"><table s=
+tyle=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; wid=
+th: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=
+=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0=
+pt;"><div class=3D"OBDEmailbodytext" style=3D"color: #808080; line-height: =
+normal; text-align: center; text-indent: 0pt; font: normal normal 8.0pt Ari=
+al; -webkit-text-size-adjust: none; padding: 0pt;"><div>&nbsp;</div></div><=
+/td></tr></table><table style=3D"border-spacing: 0px; border-collapse: coll=
+apse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr=
+><td valign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding=
+-left:0pt;padding-right:0pt;"><div class=3D"OBDEmailbodytext" style=3D"line=
+-height: 0pt; text-align: center; text-indent: 0pt; padding: 0pt;"><span st=
+yle=3D"color: #808080; line-height: normal; font: normal normal 8.0pt Arial=
+; -webkit-text-size-adjust: none; padding: 0pt;">You subscribe to Sky's pro=
+ducts and services, so this service message is to help you make the most of=
+ them.</span></div></td></tr></table><table style=3D"border-spacing: 0px; b=
+order-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; paddi=
+ng-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=3D"OBDEmailbod=
+ytext" style=3D"color: #808080; line-height: normal; text-align: center; te=
+xt-indent: 0pt; font: normal normal 8.0pt Arial; -webkit-text-size-adjust: =
+none; padding: 0pt;"><div>&nbsp;</div></div></td></tr></table><table style=
+=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; width: =
+100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"=
+padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0pt;"=
+><div class=3D"OBDEmailbodytext" style=3D"line-height: 0pt; text-align: cen=
+ter; text-indent: 0pt; padding: 0pt;"><span style=3D"color: #808080; line-h=
+eight: normal; font: normal normal 8.0pt Arial; -webkit-text-size-adjust: n=
+one; padding: 0pt;"> Please add </span><span style=3D"color: #808080; line-=
+height: normal; text-decoration: underline; font: normal normal 8.0pt Arial=
+; -webkit-text-size-adjust: none; padding: 0pt;"><a href=3D"mailto:sky@noti=
+fications.contact.sky" style=3D"color: #808080; line-height: normal; text-d=
+ecoration: underline; font: normal normal 8.0pt Arial; -webkit-text-size-ad=
+just: none; padding: 0pt;">sky@notifications.contact.sky</a></span><span st=
+yle=3D"color: #808080; line-height: normal; font: normal normal 8.0pt Arial=
+; -webkit-text-size-adjust: none; padding: 0pt;"> to your address book or s=
+afe sender list. This email was sent to you by &#169;Sky UK Ltd 2025. </spa=
+n></div></td></tr></table><table style=3D"border-spacing: 0px; border-colla=
+pse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0p=
+t; padding-left:0pt;padding-right:0pt;"><div class=3D"OBDEmailbodytext" sty=
+le=3D"color: #808080; line-height: normal; text-align: center; text-indent:=
+ 0pt; font: normal normal 8.0pt Arial; -webkit-text-size-adjust: none; padd=
+ing: 0pt;"><div>&nbsp;</div></div></td></tr></table><table style=3D"border-=
+spacing: 0px; border-collapse: collapse; color: inherit; width: 100%;" cell=
+padding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bot=
+tom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=
+=3D"OBDEmailbodytext" style=3D"line-height: 0pt; text-align: center; text-i=
+ndent: 0pt; padding: 0pt;"><span style=3D"color: #808080; line-height: norm=
+al; font: normal normal 8.0pt Arial; -webkit-text-size-adjust: none; paddin=
+g: 0pt;">Sky UK Limited (company number: 02906991) and Sky Subscribers Serv=
+ices Limited (company number: 02340150), Grant Way, Isleworth, Middlesex, T=
+W7 5QD.  Sky Subscribers Services Limited is an appointed representative of=
+ Sky UK Limited which is authorised and regulated by the Financial Conduct =
+Authority.</span></div></td></tr></table><table style=3D"border-spacing: 0p=
+x; border-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D"=
+0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; p=
+adding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=3D"OBDEmai=
+lbodytext" style=3D"font-size: 8.0pt; line-height: normal; text-align: cent=
+er; text-indent: 0pt; padding: 0pt;"><span style=3D"color: #808080; line-he=
+ight: normal; font: normal normal 8.0pt Arial; -webkit-text-size-adjust: no=
+ne; padding: 0pt;"> </span></div></td></tr></table><table style=3D"border-s=
+pacing: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellp=
+adding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bott=
+om: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=
+=3D"OBDEmailbodytext" style=3D"line-height: 0pt; text-align: center; text-i=
+ndent: 0pt; padding: 0pt;"><span style=3D"color: #808080; line-height: norm=
+al; text-decoration: underline; font: normal normal 8.0pt Arial; -webkit-te=
+xt-size-adjust: none; padding: 0pt;"><a href=3D"https://www.sky.com/help/ar=
+ticles/sky-privacy-and-cookies-notice" style=3D"color: #808080; line-height=
+: normal; text-decoration: underline; font: normal normal 8.0pt Arial; -web=
+kit-text-size-adjust: none; padding: 0pt;">Privacy Policy</a></span></div><=
+/td></tr></table><table style=3D"border-spacing: 0px; border-collapse: coll=
+apse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr=
+><td valign=3D"top" style=3D"padding-bottom: 0pt; padding-top: 0pt; padding=
+-left:0pt;padding-right:0pt;"><div class=3D"OBDEmailbodytext" style=3D"colo=
+r: #808080; line-height: normal; text-align: center; text-indent: 0pt; font=
+: normal normal 8.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;"=
+><div>&nbsp;</div></div></td></tr></table><table style=3D"border-spacing: 0=
+px; border-collapse: collapse; color: inherit; width: 100%;" cellpadding=3D=
+"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-bottom: 0pt; =
+padding-top: 0pt; padding-left:0pt;padding-right:0pt;"><div class=3D"OBDEma=
+ilbodytext" style=3D"color: #808080; line-height: normal; text-align: cente=
+r; text-indent: 0pt; font: normal normal 8.0pt Arial; -webkit-text-size-adj=
+ust: none; padding: 0pt;"><div>&nbsp;</div></div></td></tr></table></div></=
+td></tr></table></div></td></tr></table></td></tr></tbody></table></td></tr=
+></table></div></td></tr></table></div></td></tr></table></td></tr><tr clas=
+s=3D"C3013403494752670720" style=3D"padding: 0pt;"><td valign=3D"top" style=
+=3D"padding: 0; padding: 0pt; width: 453.5pt;"><table style=3D"border-spaci=
+ng: 0px; border-collapse: collapse; color: inherit; width: 100%;" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt=
+;padding-right:0pt;padding-top:0pt;padding-bottom:0pt;"><div name=3D"Text (=
+45)" style=3D"padding-top: 1.95pt; padding-right: 1.95pt; padding-left: 1.9=
+5pt; padding-bottom: 0pt;"><table style=3D"border-spacing: 0px; border-coll=
+apse: collapse; color: inherit; width: 100%;" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><td valign=3D"top" style=3D"padding-left:0pt;padding-right:0pt;p=
+adding-top:0pt;padding-bottom:0pt;"><div style=3D"padding: 0pt;"><table sty=
+le=3D"border-spacing: 0px; border-collapse: collapse; color: inherit; width=
+: 100%;" cellpadding=3D"0" cellspacing=3D"0"><tr><td valign=3D"top" style=
+=3D"padding-bottom: 0pt; padding-top: 0pt; padding-left:0pt;padding-right:0=
+pt;"><div style=3D"line-height: 0pt; text-align: right; text-indent: 0pt; p=
+adding: 0pt;"><span style=3D"color: #000000; line-height: normal; font: nor=
+mal normal 10.0pt Arial; -webkit-text-size-adjust: none; padding: 0pt;">MOB=
+1100</span></div></td></tr></table></div></td></tr></table></div></td></tr>=
+</table></td></tr></tbody></table></td></tr></table></td><td valign=3D"top"=
+ style=3D"padding: 0pt; background-color: ; width: 0.0pt;"></td></tr><tr><t=
+d colspan=3D"3" valign=3D"top" style=3D"padding: 0pt; background-color: ; p=
+osition: relative; height: 0.0pt;"></td></tr></tbody></table></div></body><=
+/html><img height=3D'0' width=3D'0' alt=3D'' src=3D'https://rt5-t.notificat=
+ions.contact.sky/r/=3Fid=3Dh105323c7,11d7d33d,1'/>
+
